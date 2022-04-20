@@ -1,0 +1,54 @@
+.wrapper{
+  position: relative;
+  width: 210px;
+  padding: 20px 30px;
+  background: #FFFFFF;
+  border: 1px solid #F3F3F3;
+  border-radius: 40px; 
+}
+.heartWrapper{
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    border: 1px solid #F3F3F3;
+    border-radius: 10px;
+}
+.plusWrapper{
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #F3F3F3;
+  border-radius: 10px;
+}
+.shoeImg{
+  width: 133px;
+  height: 112px;
+  object-fit: contain;
+}
+.textName{
+  font-size: 14px;
+  line-height: 17px;
+}
+.textPrice{
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #BDBDBD;
+  margin-top: 20px;
+}
+.price{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}

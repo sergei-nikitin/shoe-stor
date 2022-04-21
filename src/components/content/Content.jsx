@@ -8,8 +8,8 @@ export const Content = () => {
     <div className={s.content}>
       <div className={s.descr_block}>
         <h1>All shoes</h1>
-        <div className={s.inputWrapper}><img src={ search }/><input type="text" placeholder="Search..."/></div>
-        
+        <div className={s.inputWrapper}><img src={search} alt="search" />
+          <input type="text" placeholder="Search..." /></div>
         
       </div>
         <Card />

@@ -6,24 +6,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #E7F6FF;
 }
-*{
+* {
+    font-family: 'inter',
+    'system-ui';
+}
+* {
   box-sizing: border-box;
   outline: none;
   margin: 0;
   padding: 0;
 }
-ul{
+button{
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+ul {
   list-style: none;
 }
-a{
+a {
   color: inherit;
   text-decoration: none;;
-}
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .wrapper{

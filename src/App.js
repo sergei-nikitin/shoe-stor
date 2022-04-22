@@ -1,13 +1,13 @@
-import { Header } from "./components/header/Header";
-import { Content } from "./components/content/Content";
-import { Draver } from "./components/draver/Draver";
+import { Header } from "./components/header";
+import { Content } from "./components/content";
+import { Draver } from "./components/draver";
 
 function App() {
   return (
     <div className="wrapper">
       <Draver />
       <Header />
-      <Content></Content>
+      <Content />
     </div>
   );
 }

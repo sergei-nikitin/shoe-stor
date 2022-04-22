@@ -6,7 +6,7 @@ import close from "../../images/svg/deleteIcon.svg";
 
 export const Draver = () => {
   return (
-    <div style={{display: 'none'}}  className={s.overlay}>
+    <div  style={{display: 'none'}}  className={s.overlay}>
       <div className={s.draver}>
         <button type="button" className={ s.closeBtn }> <img src={close} alt="close" /> </button>
         <h2>Shopping cart</h2>

@@ -1,13 +1,16 @@
 .wrapper{
   position: relative;
-  width: 210px;
+  min-width: 210px;
+  width: 100%;
   padding: 20px 30px;
   background: #FFFFFF;
-  border: 1px solid #F3F3F3;
+  border: 1px solid #d7d7d7;
   border-radius: 40px; 
+  max-width: 10px;
 }
 .heartWrapper{
   position: absolute;
+  z-index: 2;
   top: 20px;
   left: 30px;
   width: 32px;
@@ -36,10 +39,14 @@
     }
 }
 
-.shoeImg{
+.shoeImg,
+.shoeDefImg{
   width: 133px;
   height: 112px;
   object-fit: contain;
+}
+.shoeDefImg{
+  filter: blur(2px);
 }
 .textName{
   font-size: 14px;
@@ -48,7 +55,7 @@
 .textPrice{
   text-transform: uppercase;
   font-size: 11px;
-  color: #BDBDBD;
+  color: #828282;
   margin-top: 20px;
 }
 .price{

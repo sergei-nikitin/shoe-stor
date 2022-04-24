@@ -1,27 +1,39 @@
-import React from "react";
+import {React, useState} from "react";
 import s from "./Card.module.scss"
-import nikeBlazer from "../../images/jpg/nike-blazer.jpg";
 import notAdded from '../../images/svg/notAdded.svg';
 import added from '../../images/svg/added.svg';
 import unliked from '../../images/svg/unliked.svg';
 import liked from '../../images/svg/liked.svg';
 import defFoto from "../../images/jpg/def.jpg";
 
-export const Card = ({ img, name, price }) => {
-  //  const baseUrl = "../../images/jpg/"
+export const Card = ({ img, name, price, onFavorit, onAdd }) => {
+  const [isAdded, setIsAdded] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
+ 
+
+  const handleAddClick = () => {
+    
+    setIsAdded(!isAdded)
+    onAdd({img, name, price})
+}
+  const handleLikedClick = () => {
+  setIsLiked(!isLiked)
+}
+
+  
   return (
     <div className={s.wrapper}>
-      <button className={s.heartWrapper}>
-        <img src={unliked} alt="heart" />
+      <button onClick={handleLikedClick} className={s.heartWrapper}>
+        <img src={ isLiked ? liked : unliked} alt="heart" />
       </button>
-      <button className={s.plusWrapper}>
-        <img src={notAdded} alt="plus" />
+      <button onClick={handleAddClick} className={s.plusWrapper}>
+        <img src={isAdded ? added : notAdded} alt="plus" />
       </button>
+      
       {img
         ?
-        // <img className={s.shoeImg} src={nikeBlazer} alt="foto" />
         <img className={s.shoeImg} src={img} alt="foto" />
-        // <img className={s.shoeImg} src={require(`${img}`)} alt="foto" />
         :
         <img className={s.shoeDefImg} src={defFoto} alt="foto"
         />}

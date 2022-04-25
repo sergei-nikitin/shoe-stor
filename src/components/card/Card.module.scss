@@ -1,12 +1,15 @@
 .wrapper{
   position: relative;
-  min-width: 210px;
+  // margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 20px 30px;
   background: #FFFFFF;
   border: 1px solid #d7d7d7;
   border-radius: 40px; 
-  max-width: 10px;
 }
 .heartWrapper{
   position: absolute;
@@ -36,14 +39,23 @@
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.07);
+
+      .shoeImg{
+        transform: rotate3d(1, 1, 1, -10deg) scale(1.05);
+        // transform: rotate(-10deg) scale(1.05);
+      }
     }
 }
-
+.imgWrapper{
+  padding: 0 10px;
+  overflow: hidden;
+}
 .shoeImg,
 .shoeDefImg{
   width: 133px;
   height: 112px;
   object-fit: contain;
+  transition: all 250ms ease-in-out;
 }
 .shoeDefImg{
   filter: blur(2px);

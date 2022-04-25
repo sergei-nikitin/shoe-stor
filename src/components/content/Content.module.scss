@@ -12,12 +12,20 @@
     line-height: 38px;
   }
   .inputWrapper{
-    position: relative;
-    img{
-      position: absolute;
-      left: 15px;
-      top: 15px;
-    }
+    position: relative; 
+  }
+  .search {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+  }
+  .close {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 35px;
+    height: 35px;
   }
   input{
     border: 1px solid #9B9B9B;
@@ -33,11 +41,18 @@
   // outline: 1px solid red;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin: 15px 0;
+  width: 100%;
 
   li{
-    min-width: 210px;
-    margin: 10px 0;
+   width: calc(25% - 10px);
+   margin: 10px 10px 10px 0;
+  }
+}
+
+.fawWrapper{
+  h2{
+    text-align: center;
+    margin: 20px 0;
   }
 }

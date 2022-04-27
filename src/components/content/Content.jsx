@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
+
 import axios from "axios";
 import s from "./Content.module.scss";
 import { Card } from "../card/Card";
@@ -28,19 +29,13 @@ export const Content = ({
     );
     return (isLoading ? [...Array(8)] : filteredItems).map((item) => (
       <li key={shortId.generate()}>
-        {console.log(item)}
         <Card
           loading={isLoading}
           cartItems={cartItems}
-          // img={item.imgUrl}
           {...item}
-          // name={name}
-          // price={price}
-          // img={imgUrl}
-          // id={id}
           onAdd={(obj) => addToCart(obj)}
           onFavorite={(obj) => addOnFavorites(obj)}
-          add={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
+          // add={isCheckeOnAdded(item && item.id)}
         />
       </li>
     ));

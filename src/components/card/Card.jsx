@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
+import { AppContext } from "../../context";
 import ContentLoader from "react-content-loader";
 import s from "./Card.module.scss";
 import notAdded from "../../images/svg/notAdded.svg";
@@ -9,26 +10,24 @@ import defFoto from "../../images/jpg/def.jpg";
 
 export const Card = ({
   id,
-  imgUrl,
+  img,
   name,
   price,
   onFavorite,
   onAdd,
-  favorited = false,
-  add = false,
   loading = false,
 }) => {
-  const [isAdded, setIsAdded] = useState(add);
-  const [isLiked, setIsLiked] = useState(favorited);
+  const { isCheckeOnAdded, isCheckeOnFavorites } = useContext(AppContext);
 
   const handleAddClick = (img, name, price, id) => {
     onAdd({ img, name, price, id });
-    setIsAdded(!isAdded);
   };
-  const handleLikedClick = () => {
-    setIsLiked(!isLiked);
-    onFavorite({ id, imgUrl, name, price });
+  const handleLikedClick = (img, name, price, id) => {
+    onFavorite({ id, img, name, price });
   };
+  // const handleLikedClick = () => {
+  //   onFavorite({ id, img, name, price });
+  // };
 
   return (
     <div className={s.wrapper}>
@@ -51,18 +50,21 @@ export const Card = ({
         </ContentLoader>
       ) : (
         <>
-          <button onClick={handleLikedClick} className={s.heartWrapper}>
-            <img src={isLiked ? liked : unliked} alt="heart" />
+          <button
+            onClick={() => handleLikedClick(img, name, price, id)}
+            className={s.heartWrapper}
+          >
+            <img src={isCheckeOnFavorites(id) ? liked : unliked} alt="heart" />
           </button>
           <button
-            onClick={() => handleAddClick(imgUrl, name, price, id)}
+            onClick={() => handleAddClick(img, name, price, id)}
             className={s.plusWrapper}
           >
-            <img src={isAdded ? added : notAdded} alt="plus" />
+            <img src={isCheckeOnAdded(id) ? added : notAdded} alt="plus" />
           </button>
           <div className={s.imgWrapper}>
-            {imgUrl ? (
-              <img className={s.shoeImg} src={imgUrl} alt="foto" />
+            {img ? (
+              <img className={s.shoeImg} src={img} alt="foto" />
             ) : (
               <img className={s.shoeDefImg} src={defFoto} alt="foto" />
             )}

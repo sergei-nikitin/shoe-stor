@@ -112,6 +112,10 @@ transition: all 250ms ease-in-out;
     transform: translateY(-5px);
     box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.07);
   }
+
+  &:disabled{
+    background-color: #bebebe;
+  }
 }
 .arrow{
   position: absolute;
@@ -120,9 +124,4 @@ transition: all 250ms ease-in-out;
   transform: translateY(-50%);
 
 }
-.arrowLeft{
-  position: absolute;
-  top: 50%;
-  left: 40px;
-  transform: translateY(-50%);
-}
+

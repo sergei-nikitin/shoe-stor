@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { AppContext } from "../context";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
 import { Loyaut } from "./Loyaut";
@@ -62,9 +63,12 @@ export const AppRouter = () => {
 
   const addOnFavorites = async (obj) => {
     try {
-      if (favorites.find((favObj) => favObj.id === obj.id)) {
+      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
         axios.delete(
           `https://6264756ca55d5055be48bdf2.mockapi.io/favorites/${obj.id}`
+        );
+        setFavorites((prev) =>
+          prev.filter((item) => Number(item.id) !== Number(obj.id))
         );
       } else {
         const { data } = await axios.post(
@@ -78,39 +82,62 @@ export const AppRouter = () => {
     }
   };
 
+  const isCheckeOnAdded = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
+  const isCheckeOnFavorites = (id) => {
+    return favorites.some((obj) => Number(obj.id) === Number(id));
+  };
+
   return (
-    <div>
-      <Header onOpenDraver={onOpenkBasket} />
-      {draver && (
-        <Draver
-          items={cartItems}
-          onClose={onCloseBasket}
-          onRemove={onRemoveItem}
-        />
-      )}
-      <Routes>
-        <Route path="/" element={<Loyaut />}>
-          <Route
-            index
-            element={
-              <Home
-                items={items}
-                cartItems={cartItems}
-                addToCart={addToCart}
-                addOnFavorites={addOnFavorites}
-                isLoading={isLoading}
-              />
-            }
+    <AppContext.Provider
+      value={{
+        items,
+        favorites,
+        cartItems,
+        setCartItems,
+        isCheckeOnAdded,
+        isCheckeOnFavorites,
+        addOnFavorites,
+        setDraver,
+      }}
+    >
+      <div>
+        <Header onOpenDraver={onOpenkBasket} />
+        {draver && (
+          <Draver
+            items={cartItems}
+            onClose={onCloseBasket}
+            onRemove={onRemoveItem}
           />
-          <Route
-            path="favorite"
-            element={
-              <Favorite favorites={favorites} addOnFavorites={addOnFavorites} />
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </div>
+        )}
+        <Routes>
+          <Route path="/" element={<Loyaut />}>
+            <Route
+              index
+              element={
+                <Home
+                  items={items}
+                  cartItems={cartItems}
+                  addToCart={addToCart}
+                  addOnFavorites={addOnFavorites}
+                  isLoading={isLoading}
+                />
+              }
+            />
+            <Route
+              path="favorite"
+              element={
+                <Favorite
+                // favorites={favorites}
+                // addOnFavorites={addOnFavorites}
+                />
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 };

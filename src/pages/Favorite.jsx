@@ -1,10 +1,11 @@
-import React from "react";
+import {React} from "react";
 import { Card } from "../components/card/Card";
 import shortId from 'shortid'
 import s from '../components/content/Content.module.scss';
 
 export const Favorite = ({ favorites = [], addOnFavorites }) => {
-  console.log("favoritees: ", favorites)
+  // console.log("favoritees: ", favorites)
+
   return (
     <div className={s.fawWrapper}>
      

@@ -1,6 +1,7 @@
 .content{
   width: 100%;
   padding: 20px;
+  flex: 1 1 auto;
 }
 .descr_block{
   display: flex;
@@ -41,12 +42,24 @@
   // outline: 1px solid red;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 15px 0;
   width: 100%;
+
+  @media(max-width: 425px) {
+    justify-content: center;
+  }
 
   li{
    width: calc(25% - 10px);
    margin: 10px 10px 10px 0;
+
+   @media(max-width: 768px) {
+    width: calc(50% - 10px);
+   }
+   @media(max-width: 425px) {
+    width: 90%;
+   }
   }
 }
 

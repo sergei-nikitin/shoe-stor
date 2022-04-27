@@ -1,63 +1,80 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import s from './Content.module.scss';
+import s from "./Content.module.scss";
 import { Card } from "../card/Card";
 import search from "../../images/svg/search.svg";
 import close from "../../images/svg/deleteIcon.svg";
-import shortId from 'shortid'
+import shortId from "shortid";
 
-export const Content = ({addToCart, addOnFavorites}) => {
-  const [items, setItems] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
-  
-  
-  useEffect(() => {
-    axios.get('https://6264756ca55d5055be48bdf2.mockapi.io/items').then(res => { setItems(res.data) })
-  }, [])
+export const Content = ({
+  items,
+  addToCart,
+  addOnFavorites,
+  cartItems,
+  isLoading,
+}) => {
+  const [searchValue, setSearchValue] = useState("");
 
   const onChangeSearchInput = (e) => {
-   setSearchValue(e.target.value)
-  }
+    setSearchValue(e.target.value);
+  };
   const onClearInput = (e) => {
-    setSearchValue('')
-  }
- 
+    setSearchValue("");
+  };
+
+  const renderItems = () => {
+    const filteredItems = items.filter((i) =>
+      i.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    return (isLoading ? [...Array(8)] : filteredItems).map((item) => (
+      <li key={shortId.generate()}>
+        {console.log(item)}
+        <Card
+          loading={isLoading}
+          cartItems={cartItems}
+          // img={item.imgUrl}
+          {...item}
+          // name={name}
+          // price={price}
+          // img={imgUrl}
+          // id={id}
+          onAdd={(obj) => addToCart(obj)}
+          onFavorite={(obj) => addOnFavorites(obj)}
+          add={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
+        />
+      </li>
+    ));
+  };
+
   return (
     <div className={s.content}>
       <div className={s.descr_block}>
-        <h1>{ searchValue ? `Search by request: `+  searchValue : 'All shoes'}</h1>
+        <h1>
+          {searchValue ? `Search by request: ` + searchValue : "All shoes"}
+        </h1>
         <div className={s.inputWrapper}>
-          
-          {!searchValue &&  <img
-            className={s.search}
-            src={search}
-            alt="search" />}
-          {searchValue &&  <img
-            onClick={onClearInput}
-            className={s.close}
-            src={close}
-            alt="close" />}
-         
-          <input onChange={onChangeSearchInput} value={searchValue} type="text" placeholder="Search..." /></div>
-        
+          {!searchValue && (
+            <img className={s.search} src={search} alt="search" />
+          )}
+          {searchValue && (
+            <img
+              onClick={onClearInput}
+              className={s.close}
+              src={close}
+              alt="close"
+            />
+          )}
+
+          <input
+            onChange={onChangeSearchInput}
+            value={searchValue}
+            type="text"
+            placeholder="Search..."
+          />
+        </div>
       </div>
 
-      <ul className={s.cardsList}>
-        {items.filter(i => i.name.toLowerCase().includes(searchValue.toLowerCase())).map(({imgUrl, name, price}) => (
-         <li key={shortId.generate()}>
-            <Card
-              name={name}
-              price={price}
-              img={imgUrl}
-              // id={id}
-              // onClichHeart={() => console.log('heart', id)}
-              onAdd={(obj) => addToCart(obj)}
-              onFavorite={(obj) => addOnFavorites(obj)}
-            />
-        </li>
-      ) 
-      )}
-        </ul>
+      <ul className={s.cardsList}>{renderItems()}</ul>
     </div>
-  )
-}
+  );
+};

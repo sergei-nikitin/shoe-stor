@@ -2,7 +2,7 @@ import { React } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "./components/AppRouter";
 // import { Loyaut } from "./components/Loyaut";
-import axios from "axios";
+// import axios from "axios";
 // import { Home } from "./pages/Home";
 // import { Favorite } from "./pages/Favorite";
 // import { NotFound } from "./pages/NotFound";

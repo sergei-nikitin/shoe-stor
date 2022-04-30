@@ -35,7 +35,6 @@ export const Content = ({
           {...item}
           onAdd={(obj) => addToCart(obj)}
           onFavorite={(obj) => addOnFavorites(obj)}
-          // add={isCheckeOnAdded(item && item.id)}
         />
       </li>
     ));

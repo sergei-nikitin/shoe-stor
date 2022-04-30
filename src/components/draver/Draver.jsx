@@ -10,7 +10,13 @@ import box from "../../images/svg/box.svg";
 import orderComplite from "../../images/svg/complete-order.svg";
 import shortId from "shortid";
 
-export const Draver = ({ onRemove, onClose, items = [] }) => {
+export const Draver = ({
+  isOpened = false,
+  totalPrice,
+  onRemove,
+  onClose,
+  items = [],
+}) => {
   const { cartItems, setCartItems } = useContext(AppContext);
 
   const [orderId, setOrderId] = useState(null);
@@ -48,9 +54,19 @@ export const Draver = ({ onRemove, onClose, items = [] }) => {
       onClose();
     }
   };
+  const persent = totalPrice * 0.05;
+
   return (
-    <div onClick={onOverlayClick} id="draver-overlay" className={s.overlay}>
-      <div className={s.draver}>
+    <div
+      onClick={onOverlayClick}
+      id="draver-overlay"
+      className={`${s.overlay} ${
+        isOpened ? s.overlayVisible : s.overlayHidden
+      }`}
+    >
+      <div
+        className={`${s.draver} ${isOpened ? s.draverVisible : s.draverHidden}`}
+      >
         <button onClick={onClose} type="button" className={s.closeBtn}>
           {" "}
           <img src={close} alt="close" />{" "}
@@ -75,11 +91,13 @@ export const Draver = ({ onRemove, onClose, items = [] }) => {
             {items.map((i) => (
               <CartItem
                 key={shortId.generate()}
+                parentid={i.parentId}
                 id={i.id}
                 name={i.name}
                 price={i.price}
                 imgUrl={i.img}
-                onRemove={() => onRemove(i.id)}
+                onRemove={() => onRemove(i.parentId)}
+                // onRemove={() => onRemove(i.id)}
               />
             ))}
           </div>
@@ -89,12 +107,12 @@ export const Draver = ({ onRemove, onClose, items = [] }) => {
             <div className={s.textInfo}>
               <p className={s.text}>Total:</p>
               <div className={s.dash}></div>
-              <p className={s.price}>5000 ₴</p>
+              <p className={s.price}>{totalPrice} ₴</p>
             </div>
             <div className={s.textInfo}>
               <p className={s.text}>Tax 5%:</p>
               <div className={s.dash}></div>
-              <p className={s.price}>250 ₴</p>
+              <p className={s.price}>{persent} ₴</p>
             </div>
             <button
               disabled={isLoading}

@@ -1,12 +1,13 @@
 import { React } from "react";
 import { Outlet } from "react-router-dom";
+import { Footer } from "../components/footer/Footer";
 
 export const Loyaut = () => {
   return (
     <>
       <Outlet />
       <>
-        <p style={{ textAlign: "center", margin: "15px" }}>&#169; 2022</p>
+        <Footer />
       </>
     </>
   );

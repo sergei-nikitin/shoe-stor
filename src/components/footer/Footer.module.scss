@@ -1,0 +1,20 @@
+.wrapper{
+  // outline: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 17px;
+  border-top: 1px solid #EAEAEA;
+}
+.text{
+  text-align: center;
+
+}
+.icon {
+  margin: 0px 3px;
+  color: #0e76a8;
+  transition: all 250ms;
+  &:hover{
+    transform: scale(1.1);
+  }
+}

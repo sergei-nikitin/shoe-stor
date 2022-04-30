@@ -10,6 +10,7 @@ import defFoto from "../../images/jpg/def.jpg";
 
 export const Card = ({
   id,
+  parentId,
   img,
   name,
   price,
@@ -18,12 +19,13 @@ export const Card = ({
   loading = false,
 }) => {
   const { isCheckeOnAdded, isCheckeOnFavorites } = useContext(AppContext);
+  const obj = { id, parentId, img, name, price };
 
-  const handleAddClick = (img, name, price, id) => {
-    onAdd({ img, name, price, id });
+  const handleAddClick = () => {
+    onAdd(obj);
   };
-  const handleLikedClick = (img, name, price, id) => {
-    onFavorite({ id, img, name, price });
+  const handleLikedClick = () => {
+    onFavorite(obj);
   };
   // const handleLikedClick = () => {
   //   onFavorite({ id, img, name, price });
@@ -50,18 +52,28 @@ export const Card = ({
         </ContentLoader>
       ) : (
         <>
-          <button
-            onClick={() => handleLikedClick(img, name, price, id)}
-            className={s.heartWrapper}
-          >
-            <img src={isCheckeOnFavorites(id) ? liked : unliked} alt="heart" />
-          </button>
-          <button
-            onClick={() => handleAddClick(img, name, price, id)}
-            className={s.plusWrapper}
-          >
-            <img src={isCheckeOnAdded(id) ? added : notAdded} alt="plus" />
-          </button>
+          {onFavorite && (
+            <button
+              // onClick={onFavorite}
+              onClick={() => handleLikedClick(obj)}
+              // onClick={() => handleLikedClick(img, name, price, id)}
+              className={s.heartWrapper}
+            >
+              <img
+                src={isCheckeOnFavorites(obj.parentId) ? liked : unliked}
+                alt="heart"
+              />
+            </button>
+          )}
+
+          {onAdd && (
+            <button
+              onClick={() => handleAddClick(img, name, price, id, parentId)}
+              className={s.plusWrapper}
+            >
+              <img src={isCheckeOnAdded(id) ? added : notAdded} alt="plus" />
+            </button>
+          )}
           <div className={s.imgWrapper}>
             {img ? (
               <img className={s.shoeImg} src={img} alt="foto" />

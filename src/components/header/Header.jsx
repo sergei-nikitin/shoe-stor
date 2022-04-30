@@ -1,13 +1,26 @@
-import { React } from "react";
+import { React, useContext } from "react";
 import { Link } from "react-router-dom";
-import s from "./Header.module.scss";
 
+import { AppContext } from "../../context";
+import { Draver } from "../draver/Draver";
+
+import s from "./Header.module.scss";
 import logo from "../../images/png/logo.png";
 import user from "../../images/svg/user.svg";
 
 export const Header = ({ onOpenDraver }) => {
+  const { draver, onRemoveItem, onCloseBasket, cartItems } =
+    useContext(AppContext);
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
   return (
     <header className={s.header}>
+      <Draver
+        isOpened={draver}
+        totalPrice={totalPrice}
+        items={cartItems}
+        onClose={onCloseBasket}
+        onRemove={onRemoveItem}
+      />
       <Link to="/">
         <div className={s.containers}>
           <img className={s.logo} src={logo} />
@@ -34,7 +47,7 @@ export const Header = ({ onOpenDraver }) => {
             />
           </svg>
 
-          <span>1000 ₴</span>
+          <span>{totalPrice} ₴</span>
         </button>
 
         <Link to="/favorite">
@@ -50,10 +63,11 @@ export const Header = ({ onOpenDraver }) => {
             />
           </svg>
         </Link>
-
-        <button type="button">
-          <img src={user} />
-        </button>
+        <Link to="/orders">
+          <button type="button">
+            <img src={user} />
+          </button>
+        </Link>
       </div>
     </header>
   );

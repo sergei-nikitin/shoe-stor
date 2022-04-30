@@ -5,7 +5,8 @@ import shortId from "shortid";
 import s from "../components/content/Content.module.scss";
 
 export const Favorite = () => {
-  const { favorites, addOnFavorites } = useContext(AppContext);
+  const { favorites, addOnFavorites, addToCart } = useContext(AppContext);
+  console.log(favorites);
   return (
     <div className={s.fawWrapper}>
       {favorites.length !== 0 ? (
@@ -17,9 +18,9 @@ export const Favorite = () => {
                 <Card
                   {...i}
                   favorited={true}
-                  onFavorite={addOnFavorites}
-                  // onAdd={(obj) => addToCart(obj)}
-                  // onFavorite={(obj) => addOnFavorites(obj)}
+                  // onFavorite={addOnFavorites}
+                  onFavorite={(obj) => addOnFavorites(obj)}
+                  onAdd={(obj) => addToCart(obj)}
                 />
               </li>
             ))}

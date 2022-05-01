@@ -21,7 +21,7 @@ export const Header = ({ onOpenDraver }) => {
         onClose={onCloseBasket}
         onRemove={onRemoveItem}
       />
-      <Link to="/">
+      <Link to="/shoe-stor/">
         <div className={s.containers}>
           <img className={s.logo} src={logo} />
           <div className={s.descr}>
@@ -50,7 +50,7 @@ export const Header = ({ onOpenDraver }) => {
           <span>{totalPrice} ₴</span>
         </button>
 
-        <Link to="/favorite">
+        <Link to="/shoe-stor/favorite">
           <svg
             width="22"
             height="19"
@@ -63,7 +63,7 @@ export const Header = ({ onOpenDraver }) => {
             />
           </svg>
         </Link>
-        <Link to="/orders">
+        <Link to="/shoe-stor/orders">
           <button type="button">
             <img src={user} />
           </button>

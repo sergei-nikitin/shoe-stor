@@ -181,8 +181,8 @@ export const AppRouter = () => {
               />
             }
           />
-          <Route path="shoe-stor/favorite" element={<Favorite />} />
-          <Route path="shoe-stor/orders" element={<Orders />} />
+          <Route path="/shoe-stor/favorite" element={<Favorite />} />
+          <Route path="/shoe-stor/orders" element={<Orders />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

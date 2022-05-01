@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shoe-stor/static/css/main.2b063d33.css",
-    "main.js": "/shoe-stor/static/js/main.824708cd.js",
+    "main.js": "/shoe-stor/static/js/main.4d06fbb4.js",
     "static/media/box.svg": "/shoe-stor/static/media/box.336c7c2589e3ea63078da0b090ceefd3.svg",
     "static/media/complete-order.svg": "/shoe-stor/static/media/complete-order.561d3ebc6a556e285054eb6e65db4109.svg",
     "static/media/def.jpg": "/shoe-stor/static/media/def.dbed1c1b740acab44be6.jpg",
@@ -16,10 +16,10 @@
     "static/media/arrow.svg": "/shoe-stor/static/media/arrow.2273ca2896e3f94331ccf42251d4c952.svg",
     "static/media/arrow-left.svg": "/shoe-stor/static/media/arrow-left.d09d49a9b7244e43828cdf8702cc8d31.svg",
     "main.2b063d33.css.map": "/shoe-stor/static/css/main.2b063d33.css.map",
-    "main.824708cd.js.map": "/shoe-stor/static/js/main.824708cd.js.map"
+    "main.4d06fbb4.js.map": "/shoe-stor/static/js/main.4d06fbb4.js.map"
   },
   "entrypoints": [
     "static/css/main.2b063d33.css",
-    "static/js/main.824708cd.js"
+    "static/js/main.4d06fbb4.js"
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/shoe-stor/static/css/main.2b063d33.css",
+    "main.js": "/shoe-stor/static/js/main.45d6dcd1.js",
+    "static/media/box.svg": "/shoe-stor/static/media/box.336c7c2589e3ea63078da0b090ceefd3.svg",
+    "static/media/complete-order.svg": "/shoe-stor/static/media/complete-order.561d3ebc6a556e285054eb6e65db4109.svg",
+    "static/media/def.jpg": "/shoe-stor/static/media/def.dbed1c1b740acab44be6.jpg",
+    "static/media/unliked.svg": "/shoe-stor/static/media/unliked.9fdfc207e27489ebe86641714a2f0ab7.svg",
+    "static/media/added.svg": "/shoe-stor/static/media/added.38914d310a461e6125a8129f5b3ad845.svg",
+    "index.html": "/shoe-stor/index.html",
+    "static/media/user.svg": "/shoe-stor/static/media/user.1e0647160a5bb0f451a00748acab6461.svg",
+    "static/media/liked.svg": "/shoe-stor/static/media/liked.13b69a669a981dfbf42d2b7cf4235706.svg",
+    "static/media/deleteIcon.svg": "/shoe-stor/static/media/deleteIcon.54e9a82e6c11dc9e8066269519a05690.svg",
+    "static/media/notAdded.svg": "/shoe-stor/static/media/notAdded.ab12c222dd73a40fc09de5a1faac121c.svg",
+    "static/media/search.svg": "/shoe-stor/static/media/search.750aa7659b65344dd08e4884258b4e40.svg",
+    "static/media/arrow.svg": "/shoe-stor/static/media/arrow.2273ca2896e3f94331ccf42251d4c952.svg",
+    "static/media/arrow-left.svg": "/shoe-stor/static/media/arrow-left.d09d49a9b7244e43828cdf8702cc8d31.svg",
+    "main.2b063d33.css.map": "/shoe-stor/static/css/main.2b063d33.css.map",
+    "main.45d6dcd1.js.map": "/shoe-stor/static/js/main.45d6dcd1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b063d33.css",
+    "static/js/main.45d6dcd1.js"
+  ]
+}

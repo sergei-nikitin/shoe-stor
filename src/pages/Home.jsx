@@ -20,17 +20,3 @@ export const Home = ({
     </div>
   );
 };
-
-// ({ imgUrl, name, price, id }) => (
-//   <li key={shortId.generate()}>
-//     <Card
-//       loading={isLoading}
-//       cartItems={cartItems}
-//       name={name}
-//       price={price}
-//       img={imgUrl}
-//       id={id}
-//       onAdd={(obj) => addToCart(obj)}
-//       onFavorite={(obj) => addOnFavorites(obj)}
-//       add={cartItems.some((obj) => Number(obj.id) === Number(id))}
-//     />

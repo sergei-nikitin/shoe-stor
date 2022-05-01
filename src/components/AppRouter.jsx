@@ -167,9 +167,10 @@ export const AppRouter = () => {
       <Header onOpenDraver={onOpenkBasket} />
 
       <Routes>
-        <Route path="/" element={<Loyaut />}>
+        <Route path="/shoe-stor/" element={<Loyaut />}>
           <Route
             index
+            // path=""
             element={
               <Home
                 items={items}

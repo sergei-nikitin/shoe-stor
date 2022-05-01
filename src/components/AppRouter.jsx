@@ -169,8 +169,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Loyaut />}>
           <Route
-            // index
-            path="shoe-store"
+            index
             element={
               <Home
                 items={items}

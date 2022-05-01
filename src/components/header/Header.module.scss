@@ -45,3 +45,8 @@
   height: 40px;
   margin-right: 15px;
 }
+.descr{
+  @media (max-width: 400px) {
+    display: none;
+  }
+}

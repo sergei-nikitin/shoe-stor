@@ -7,6 +7,7 @@ import added from "../../images/svg/added.svg";
 import unliked from "../../images/svg/unliked.svg";
 import liked from "../../images/svg/liked.svg";
 import defFoto from "../../images/jpg/def.jpg";
+import { Button } from "@mui/material";
 
 export const Card = ({
   id,
@@ -53,17 +54,15 @@ export const Card = ({
       ) : (
         <>
           {onFavorite && (
-            <button
-              // onClick={onFavorite}
+            <Button
               onClick={() => handleLikedClick(obj)}
-              // onClick={() => handleLikedClick(img, name, price, id)}
               className={s.heartWrapper}
             >
               <img
                 src={isCheckeOnFavorites(obj.parentId) ? liked : unliked}
                 alt="heart"
               />
-            </button>
+            </Button>
           )}
 
           {onAdd && (

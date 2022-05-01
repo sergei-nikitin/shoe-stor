@@ -169,8 +169,8 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/shoe-stor/" element={<Loyaut />}>
           <Route
-            index
-            // path=""
+            // index
+            path="/shoe-stor/"
             element={
               <Home
                 items={items}
@@ -181,8 +181,8 @@ export const AppRouter = () => {
               />
             }
           />
-          <Route path="favorite" element={<Favorite />} />
-          <Route path="orders" element={<Orders />} />
+          <Route path="shoe-stor/favorite" element={<Favorite />} />
+          <Route path="shoe-stor/orders" element={<Orders />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
